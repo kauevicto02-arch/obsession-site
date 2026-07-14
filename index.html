@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- ===================== SEO / TÍTULO / DESCRIÇÃO ===================== -->
+  <!-- Estes valores iniciais são substituídos automaticamente pelo main.js
+       usando as informações do js/config.js. Eles existem aqui também
+       para que buscadores e redes sociais tenham um conteúdo padrão
+       mesmo antes do JavaScript rodar. -->
+  <title id="page-title">Assista Agora — Filme em Full HD</title>
+  <meta name="description" id="page-description" content="Assista ao filme hoje mesmo em Full HD, dublado e legendado, por um preço acessível. Pagamento seguro via Pix." />
+  <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- ===================== OPEN GRAPH ===================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="og-title" content="Assista Agora — Filme em Full HD" />
+  <meta property="og:description" id="og-description" content="Assista ao filme hoje mesmo em Full HD, dublado e legendado, por um preço acessível." />
+  <meta property="og:image" id="og-image" content="assets/images/poster.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- ===================== TWITTER CARD ===================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" id="twitter-title" content="Assista Agora — Filme em Full HD" />
+  <meta name="twitter:description" id="twitter-description" content="Assista ao filme hoje mesmo em Full HD, dublado e legendado." />
+  <meta name="twitter:image" id="twitter-image" content="assets/images/poster.jpg" />
+
+  <!-- ===================== FAVICON ===================== -->
+  <!-- Troque o arquivo assets/images/poster.jpg por um ícone próprio se quiser um favicon personalizado -->
+  <link rel="icon" type="image/jpeg" href="assets/images/poster.jpg" />
+
+  <!-- ===================== FONTES (Google Fonts) ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ===================== CSS ===================== -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- =========================================================
+       SCRIPTS
+       Colocados no <head> com "defer": isso faz o navegador
+       baixar os arquivos em paralelo enquanto o HTML continua
+       sendo lido, e só executá-los depois que a página estiver
+       pronta — sem travar a exibição do conteúdo.
+       A ordem abaixo é respeitada pelo navegador: config.js
+       sempre roda antes de pixel.js, que roda antes de main.js.
+  ========================================================== -->
+  <script src="js/config.js" defer></script>
+  <script src="js/pixel.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- =========================================================
+       META PIXEL — NOSCRIPT
+       Este bloco é obrigatório para o Meta Pixel funcionar quando
+       o JavaScript está desativado no navegador do visitante.
+       Como o ID do Pixel vem do js/config.js (que só roda com JS
+       ativado), o <noscript> abaixo NÃO consegue ler esse valor
+       automaticamente — isso é uma limitação técnica do HTML puro.
+
+       Por isso, deixamos o marcador abaixo. Se você quiser que o
+       Pixel funcione também para visitantes sem JavaScript (caso
+       raro), troque manualmente o texto
+       COLE_AQUI_O_ID_DO_PIXEL_NO_NOSCRIPT pelo mesmo ID que você
+       colocar em js/config.js. Isso é explicado com detalhes no
+       README.md.
+  ========================================================== -->
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=COLE_AQUI_O_ID_DO_PIXEL_NO_NOSCRIPT&ev=PageView&noscript=1" />
+  </noscript>
+
+  <div class="app">
+
+    <!-- =========================================================
+         HERO — trailer + informações do filme
+    ========================================================== -->
+    <header class="hero" id="hero">
+
+      <div class="hero__media">
+        <video
+          id="trailer-video"
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          preload="metadata"
+          poster="assets/images/fallback.jpg"
+          aria-hidden="true"
+        >
+          <source src="assets/videos/trailer.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Imagem de fallback exibida via JS caso o vídeo não carregue -->
+        <img
+          id="fallback-image"
+          class="hero__fallback"
+          src="assets/images/fallback.jpg"
+          alt=""
+          loading="lazy"
+          hidden
+        />
+
+        <div class="hero__gradient" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__content">
+        <h1 class="hero__title" id="movie-title">NOME DO FILME</h1>
+
+        <ul class="hero__meta" aria-label="Informações do filme">
+          <li class="hero__meta-item hero__rating">
+            <span aria-hidden="true">★</span>
+            <span id="movie-rating">8.7</span>
+          </li>
+          <li class="hero__meta-item" id="movie-year">2026</li>
+          <li class="hero__meta-item" id="movie-genre">Ação • Suspense</li>
+          <li class="hero__meta-item" id="movie-duration">1h 58min</li>
+        </ul>
+
+        <p class="hero__language" id="movie-language">Dublado + Legendado</p>
+
+        <p class="hero__price-label">Assista hoje por apenas</p>
+        <p class="hero__price" id="movie-price">R$ 9,90</p>
+
+        <button type="button" class="checkout-button cta cta--primary" id="cta-hero">
+  <span class="cta__play" aria-hidden="true">▶</span>
+  <span>ASSISTIR AGORA</span>
+</button>
+
+<p class="hero__secure">
+  <span aria-hidden="true">🔒</span>
+  Pagamento seguro via Pix
+</p>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         BENEFÍCIOS + SINOPSE + FLUXO + CTA FINAL
+    ========================================================== -->
+    <main class="details">
+
+      <section class="receive-section" aria-labelledby="receive-title">
+
+  <div class="section-heading">
+    <span class="section-heading__line"></span>
+    <h2 id="receive-title">VOCÊ RECEBE</h2>
+    <span class="section-heading__line"></span>
+  </div>
+
+  <ul class="benefits" aria-label="O que você recebe">
+
+    <li class="benefits__item">
+      <div class="benefits__icon-wrap">
+        <svg class="benefits__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="5" y="10" width="38" height="28" rx="4" stroke="currentColor" stroke-width="3"/>
+          <text x="24" y="29" text-anchor="middle" fill="currentColor" font-size="13" font-weight="800">HD</text>
+        </svg>
+      </div>
+
+      <div class="benefits__content">
+        <strong>Full HD</strong>
+        <span>Qualidade premium</span>
+      </div>
+    </li>
+
+    <li class="benefits__item">
+      <div class="benefits__icon-wrap">
+        <svg class="benefits__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="17" y="5" width="14" height="25" rx="7" stroke="currentColor" stroke-width="3"/>
+          <path d="M11 23C11 30.2 16.8 36 24 36C31.2 36 37 30.2 37 23" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M24 36V43M18 43H30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="benefits__content">
+        <strong>Dublado</strong>
+        <span>Áudio em português</span>
+      </div>
+    </li>
+
+    <li class="benefits__item">
+      <div class="benefits__icon-wrap">
+        <svg class="benefits__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 6C14.1 6 6 13.2 6 22C6 26.5 8.1 30.5 11.5 33.4L9 42L18 39C19.9 39.6 21.9 40 24 40C33.9 40 42 32.8 42 24C42 14.1 33.9 6 24 6Z" stroke="currentColor" stroke-width="3"/>
+          <path d="M17 16C19 24 24 29 32 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="benefits__content">
+        <strong>Receba no WhatsApp</strong>
+        <span>Acesso enviado após o pagamento</span>
+      </div>
+    </li>
+
+    <li class="benefits__item">
+      <div class="benefits__icon-wrap">
+        <svg class="benefits__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="4" y="8" width="29" height="22" rx="3" stroke="currentColor" stroke-width="3"/>
+          <path d="M13 39H25M19 30V39" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <rect x="30" y="15" width="13" height="26" rx="3" stroke="currentColor" stroke-width="3"/>
+        </svg>
+      </div>
+
+      <div class="benefits__content">
+        <strong>Celular, TV e computador</strong>
+        <span>Assista onde quiser</span>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+      <section class="synopsis-section">
+  <h2 class="content-title">SINOPSE</h2>
+
+  <p class="synopsis" id="movie-synopsis">
+    Sinopse curta do filme em no máximo três linhas.
+  </p>
+</section>
+
+<section class="steps-section" aria-labelledby="steps-title">
+
+  <div class="section-heading">
+    <span class="section-heading__line"></span>
+    <h2 id="steps-title">COMO FUNCIONA</h2>
+    <span class="section-heading__line"></span>
+  </div>
+
+  <div class="steps">
+
+    <div class="steps__item">
+      <div class="steps__icon">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="7" y="7" width="13" height="13" rx="2" stroke="currentColor" stroke-width="3"/>
+          <rect x="28" y="7" width="13" height="13" rx="2" stroke="currentColor" stroke-width="3"/>
+          <rect x="7" y="28" width="13" height="13" rx="2" stroke="currentColor" stroke-width="3"/>
+          <path d="M29 29H35V35H41M29 41H35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <strong>1. Pague com Pix</strong>
+    </div>
+
+    <span class="steps__arrow" aria-hidden="true">→</span>
+
+    <div class="steps__item">
+      <div class="steps__icon">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 6C14.1 6 6 13.2 6 22C6 26.5 8.1 30.5 11.5 33.4L9 42L18 39C19.9 39.6 21.9 40 24 40C33.9 40 42 32.8 42 24C42 14.1 33.9 6 24 6Z" stroke="currentColor" stroke-width="3"/>
+          <path d="M17 16C19 24 24 29 32 31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <strong>2. Receba no WhatsApp</strong>
+    </div>
+
+    <span class="steps__arrow" aria-hidden="true">→</span>
+
+    <div class="steps__item">
+      <div class="steps__icon">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M19 28L29 18M17 14L13 18C9.7 21.3 9.7 26.7 13 30C16.3 33.3 21.7 33.3 25 30L29 26M31 34L35 30C38.3 26.7 38.3 21.3 35 18C31.7 14.7 26.3 14.7 23 18L19 22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <strong>3. Clique no link</strong>
+    </div>
+
+    <span class="steps__arrow" aria-hidden="true">→</span>
+
+    <div class="steps__item">
+      <div class="steps__icon">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M17 10L38 24L17 38V10Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <strong>4. Assista</strong>
+    </div>
+
+  </div>
+</section>
+
+  <!-- =========================================================
+       BOTÃO FIXO INFERIOR (aparece ao rolar a página)
+  ========================================================== -->
+  <!-- BOTÃO FINAL DA PÁGINA -->
+<button
+  type="button"
+  class="checkout-button cta cta--primary cta--full"
+  id="cta-final"
+>
+  <span class="cta__play" aria-hidden="true">▶</span>
+  <span>ASSISTIR AGORA</span>
+</button>
+
+<p class="final-secure">
+  <span aria-hidden="true">🔒</span>
+  Pagamento seguro via Pix
+</p>
+  </div>
+
+</body>
+</html>
