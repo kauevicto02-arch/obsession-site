@@ -39,7 +39,7 @@ const PAGE_CONFIG = {
   movieQuality: "Full HD",
 
   // Preço exibido para o visitante (texto, com "R$")
-  price: "R$ 9,90",
+  price: "R$ 5,99",
 
   // Preço em formato numérico, usado nos eventos do Meta Pixel
   // Use ponto (.) como separador decimal, exemplo: 9.90
@@ -54,7 +54,7 @@ const PAGE_CONFIG = {
 
   // ID do Meta Pixel (números, encontrado no Gerenciador de Eventos)
   // Troque "COLE_AQUI_O_ID_DO_PIXEL" pelo ID real
-  metaPixelId: "4065695820159646",
+  metaPixelId:"4065695820159646",
 
   // Quando "true", mostra mensagens no console do navegador
   // avisando quando cada evento do Pixel é enviado.
