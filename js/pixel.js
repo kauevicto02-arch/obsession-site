@@ -53,7 +53,7 @@ function iniciarMetaPixel() {
 
   // Se o ID não foi preenchido, a página continua funcionando
   // normalmente, apenas sem enviar dados para o Meta.
-  if (!pixelId || pixelId === "COLE_AQUI_O_ID_DO_PIXEL") {
+  if (!pixelId || pixelId === "4065695820159646") {
     pixelLog("[Pixel] ID não configurado");
     return;
   }

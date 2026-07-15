@@ -50,11 +50,11 @@ const PAGE_CONFIG = {
 
   // Link do checkout / página de pagamento
   // Troque "COLE_AQUI_O_LINK_DO_CHECKOUT" pelo link real
-  checkoutUrl: "COLE_AQUI_O_LINK_DO_CHECKOUT",
+  checkoutUrl: "https://pay.cakto.com.br/36bfdjp_981545",
 
   // ID do Meta Pixel (números, encontrado no Gerenciador de Eventos)
   // Troque "COLE_AQUI_O_ID_DO_PIXEL" pelo ID real
-  metaPixelId: "COLE_AQUI_O_ID_DO_PIXEL",
+  metaPixelId: "4065695820159646",
 
   // Quando "true", mostra mensagens no console do navegador
   // avisando quando cada evento do Pixel é enviado.
