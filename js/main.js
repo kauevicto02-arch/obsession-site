@@ -278,10 +278,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 window.addEventListener("pageshow", function () {
   const botoes = document.querySelectorAll(".checkout-button");
+  const video = document.getElementById("trailer-video");
 
   botoes.forEach(function (botao) {
     botao.disabled = false;
     botao.classList.remove("is-loading");
   });
+
+  if (video) {
+    video.muted = true;
+    video.play().catch(function () {});
+  }
 });
+
+document.addEventListener(
+  "touchstart",
+  function iniciarVideoNoPrimeiroToque() {
+    const video = document.getElementById("trailer-video");
+
+    if (video) {
+      video.muted = true;
+      video.play().catch(function () {});
+    }
+
+    document.removeEventListener("touchstart", iniciarVideoNoPrimeiroToque);
+  },
+  { passive: true }
+);
 
