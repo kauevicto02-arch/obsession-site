@@ -102,16 +102,13 @@ function definirAtributo(id, atributo, valor) {
  */
 function configurarVideo() {
   const video = document.getElementById("trailer-video");
-  const fallback = document.getElementById("fallback-image");
+  const fallback = null;
 
-  if (!video || !fallback) return;
+  if (!video) return;
 
   // Erro real de carregamento do arquivo de vídeo (ex: caminho
   // errado, arquivo corrompido, formato não suportado)
-  video.addEventListener("error", function () {
-    video.hidden = true;
-    fallback.hidden = false;
-  });
+  
 
   // Tenta iniciar o vídeo manualmente. Em alguns navegadores o
   // atributo "autoplay" sozinho não é suficiente (ex: navegador
@@ -279,15 +276,12 @@ document.addEventListener("DOMContentLoaded", () => {
       : "Ler menos ▲";
   });
 });
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("pageshow", function () {
+  const botoes = document.querySelectorAll(".checkout-button");
 
-    const video = document.getElementById("trailer-video");
-
-    if (!video) return;
-
-    video.muted = true;
-
-    video.play().catch(() => {});
-
+  botoes.forEach(function (botao) {
+    botao.disabled = false;
+    botao.classList.remove("is-loading");
+  });
 });
 
